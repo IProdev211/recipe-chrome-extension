@@ -46,7 +46,7 @@ export default function RecipeSearch({ goToAdd }: { goToAdd: () => void }) {
 
     if (key === "produce") {
       return (
-        <Typography variant="body2" fontWeight={500} color="#FB2047 !important">
+        <Typography variant="body2" fontWeight={500} color="#FB2047">
           {value}
         </Typography>
       );
@@ -100,22 +100,20 @@ export default function RecipeSearch({ goToAdd }: { goToAdd: () => void }) {
                 DIFFICULT_MAPPING[selectedRecipe?.difficulty]?.bgColor ??
                 "#17CFC4"
               }
-              color={
-                selectedRecipe?.difficulty === 2 ? "#fff" : "#0D1119 !important"
-              }
+              color={selectedRecipe?.difficulty === 2 ? "#fff" : "#0D1119"}
             >
               <Typography
                 variant="caption"
-                color="inherit !important"
                 fontFamily="Helvetica Neue"
+                color="inherit"
               >
                 Difficulty:{" "}
                 {DIFFICULT_MAPPING[selectedRecipe?.difficulty]?.text}
               </Typography>
               <Typography
                 variant="body2"
-                color="inherit !important"
                 fontFamily="Helvetica Neue"
+                color="inherit"
               >
                 {selectedRecipe?.description}
               </Typography>
@@ -132,11 +130,7 @@ export default function RecipeSearch({ goToAdd }: { goToAdd: () => void }) {
               {Object.entries(DETAIL_MAPPING).map(([key, value]) => (
                 <Grid item mobile={6} key={key} pt={1.5} pl={3}>
                   <Stack>
-                    <Typography
-                      variant="body2"
-                      fontSize={13}
-                      color="#7185AA !important"
-                    >
+                    <Typography variant="body2" fontSize={13} color="#7185AA">
                       {key}
                     </Typography>
                     {renderDetail(value, selectedRecipe?.[value])}

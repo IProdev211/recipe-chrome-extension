@@ -284,7 +284,9 @@ export default function AddRecipe({ onBack }: { onBack: () => void }) {
             name="volume"
             InputProps={{
               endAdornment: (
-                <InputAdornment position="end">grams</InputAdornment>
+                <InputAdornment position="end">
+                  <Typography>grams</Typography>
+                </InputAdornment>
               ),
             }}
             helperText={errors?.volume && "This field is required"}
@@ -302,7 +304,9 @@ export default function AddRecipe({ onBack }: { onBack: () => void }) {
             name="serves"
             InputProps={{
               endAdornment: (
-                <InputAdornment position="end">people</InputAdornment>
+                <InputAdornment position="end">
+                  <Typography>people</Typography>
+                </InputAdornment>
               ),
             }}
             helperText={errors?.serves && "This field is required"}
@@ -350,11 +354,11 @@ export default function AddRecipe({ onBack }: { onBack: () => void }) {
         </Grid>
         <Grid item mobile={12}>
           {result ? (
-            <Typography variant="body1" color="#6CF600 !important">
+            <Typography variant="body1" color="#6CF600">
               Added successfully!
             </Typography>
           ) : result === false ? (
-            <Typography variant="body1" color="#FF003D !important">
+            <Typography variant="body1" color="#FF003D">
               Failed to add!
             </Typography>
           ) : null}

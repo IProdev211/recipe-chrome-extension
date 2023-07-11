@@ -20,9 +20,6 @@ const theme = createTheme({
     primary: {
       main: "#fff",
     },
-    text: {
-      primary: "#fff",
-    },
     background: {
       default: "#171F2F",
     },
@@ -56,7 +53,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: "Bai Jamjuree",
-          color: "#fff !important",
+          color: "#fff",
         },
       },
     },
