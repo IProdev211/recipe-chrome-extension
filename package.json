@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "proxy": "node server/app.js",
+    "proxy": "node api/app.js",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack -w --config webpack.config.js"
   },
