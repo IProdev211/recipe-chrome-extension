@@ -52,7 +52,7 @@ export default function SearchBar({ recipes, onConfirm }: SearchBarProps) {
             <Typography variant="body1" fontWeight={700}>
               {DIFFICULT_MAPPING[option.difficulty.toString()]?.text}
             </Typography>
-            <Divider />
+            <Divider orientation="vertical" flexItem variant="fullWidth" />
             <Typography variant="body1">30min</Typography>
           </Stack>
         </Box>

@@ -1,9 +1,8 @@
-// @ts-nocheck
 import { Button, Grid, IconButton, Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import TwitterIcon from "../../assets/Twitter.svg";
-import TelegramIcon from "../../assets/Telegram.svg";
-import MediumIcon from "../../assets/Medium.svg";
+import { TwitterIcon } from "../../assets/Twitter";
+import { TelegramIcon } from "../../assets/Telegram";
+import { MediumIcon } from "../../assets/Medium";
 import { Recipe } from "../../services/interface";
 import { retrieveAllRecipes } from "../../services/api";
 import SearchBar from "../../components/SearchBar";
@@ -25,16 +24,16 @@ export default function RecipeSearch({ goToAdd }: { goToAdd: () => void }) {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>();
 
   useEffect(() => {
-    retrieveAllRecipes().then((res) => {
+    retrieveAllRecipes().then((res: Omit<Recipe, "id">[]) => {
       setAllRecipes(res.map((r, _i) => ({ ...r, id: _i.toString() })));
     });
   }, []);
 
-  const onSelectRecipe = (re: Recipe) => {
+  const onSelectRecipe = (re: Recipe | null) => {
     setSelectedRecipe(re);
   };
 
-  const renderDetail = (key, value) => {
+  const renderDetail = (key: string, value: any) => {
     if (["protein", "volume", "serves"].includes(key)) {
       return (
         <Typography variant="body2" fontWeight={500}>
@@ -78,12 +77,12 @@ export default function RecipeSearch({ goToAdd }: { goToAdd: () => void }) {
           <Typography variant="body1">{selectedRecipe?.name}</Typography>
         </Stack>
         <Stack direction="row" alignItems="center" spacing="5px">
-          {[TwitterIcon, TelegramIcon, MediumIcon].map((icon, _i) => (
+          {[TwitterIcon, TelegramIcon, MediumIcon].map((Icon, _i) => (
             <IconButton
-              sx={{ bgcolor: "#171F2F", width: 24, height: 24 }}
+              sx={{ bgcolor: "#171F2F", width: 24, height: 24, p: 0 }}
               key={`social_icon_${_i}`}
             >
-              <img src={icon} alt="social link" />
+              <Icon />
             </IconButton>
           ))}
           <Button onClick={goToAdd}>+ Add recipe</Button>
@@ -133,7 +132,7 @@ export default function RecipeSearch({ goToAdd }: { goToAdd: () => void }) {
                     <Typography variant="body2" fontSize={13} color="#7185AA">
                       {key}
                     </Typography>
-                    {renderDetail(value, selectedRecipe?.[value])}
+                    {renderDetail(value, (selectedRecipe as any)?.[value])}
                   </Stack>
                 </Grid>
               ))}
