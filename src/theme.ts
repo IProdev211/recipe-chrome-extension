@@ -152,6 +152,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          color: "#fff",
+        },
+      },
+    },
   },
 });
 

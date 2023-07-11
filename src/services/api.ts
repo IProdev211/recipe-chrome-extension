@@ -1,8 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { Recipe } from "./interface";
 
-const API_URL =
-  "https://master-7rqtwti-yj2le3kr2yhmu.uk-1.platformsh.site/yumazoo";
+const API_URL = "http://localhost:5000";
 
 export const retrieveAllRecipes = async () => {
   try {
@@ -10,7 +9,7 @@ export const retrieveAllRecipes = async () => {
 
     return res.data.message;
   } catch (err: any) {
-    return new Error((err as AxiosError).message);
+    throw new Error((err as AxiosError).message);
   }
 };
 export const createOneRecipe = async (data: Omit<Recipe, "id">) => {
@@ -21,6 +20,7 @@ export const createOneRecipe = async (data: Omit<Recipe, "id">) => {
 
     return res.data.message;
   } catch (err: any) {
-    return new Error((err as AxiosError).message);
+    console.log(err);
+    throw new Error((err as AxiosError).message);
   }
 };
