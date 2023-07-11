@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { Recipe } from "./interface";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://recipe-chrome-extension.vercel.app";
 
 export const retrieveAllRecipes = async () => {
   try {
