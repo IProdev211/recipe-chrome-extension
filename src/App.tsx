@@ -11,7 +11,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box bgcolor="#0D1119" borderRadius="10px" p={3} width={410}>
+      <Box
+        bgcolor="#0D1119"
+        borderRadius="10px"
+        p={3}
+        width={410}
+        minHeight={630}
+      >
         {addRecipe ? (
           <AddRecipe onBack={() => setAddRecipe(false)} />
         ) : (
